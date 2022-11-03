@@ -81,6 +81,8 @@ const LoginScreen = (props) => {
                         style={{ ...styles.openButton, backgroundColor: Colors.primaryColor, marginTop: 15, marginHorizontal:10}}
                         onPress={() => {
                             console.log("Login button Pressed")
+                            props.navigation.navigate('WelcomeScreen')
+
                         }}
                    >
                     

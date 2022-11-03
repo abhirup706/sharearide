@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 
+
 import {
   StyleSheet,
   Text,
@@ -19,10 +20,12 @@ import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
+import SelectList from 'react-native-dropdown-select-list'
 
 
 
 const UploadScreen = (props) => {
+
 
     const [status, requestPermission] = ImagePicker.useCameraPermissions();
 
@@ -70,6 +73,11 @@ const UploadScreen = (props) => {
     const [email, SetEmail] = useState("")
     const [rePassword, SetRePassword] = useState("")
     const [ExcessQuantity, SetExcessQuantity] = useState("")
+    const [selected, setSelected] = React.useState("");
+    
+    
+    
+    const data = [{key:'1',value:'Driving License'},{key:'2',value:'Passport'}];
 
     return (
         <ScrollView style={{marginHorizontal: 10, alignContent: "center"}}
@@ -109,16 +117,14 @@ const UploadScreen = (props) => {
 
                    </TouchableHighlight></View>       
 
-              <View id="idType" style={{...styles.textInput}}>
-                    <TextInput 
-                        placeholder="Enter Full Name"
-                        style={{marginLeft: 2}}
-                        placeholderTextColor={"grey"}
-                        value={userName}
-                        onChangeText = {(newUsername) => {
-                            SetUserName(newUsername)
-                         }}
-                    />
+              <View id="idType" style={{margin:10}}>
+                    <SelectList 
+                    style={{...styles.dropDown,borderColor:Colors.inactiveColor,borderWidth:3}}
+                    setSelected={setSelected} 
+                    data={data} 
+                    onChangeText = {(newId) => {
+                        setSelected(newId)
+                     }}/>
                 </View>
 
                 <View id="idNumber" style={{...styles.textInput}}>
@@ -178,6 +184,10 @@ const styles = StyleSheet.create({
         borderWidth:3, 
         borderRadius: 5,
         padding:5
+    },
+
+    dropDown:{
+
     },
 
 

@@ -9,6 +9,7 @@ import SignupScreen from "./src/screens/SignupScreen"
 import UploadScreen from "./src/screens/UploadScreen"
 import VerificationScreen from "./src/screens/VerificationScreen"
 import VerifiedScreen from './src/screens/VerifiedScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
 const ScreenNavigator = createStackNavigator(
     {
@@ -19,7 +20,8 @@ const ScreenNavigator = createStackNavigator(
       SignupScreen:SignupScreen,
       UploadScreen:UploadScreen,
       VerificationScreen:VerificationScreen,
-      VerifiedScreen:VerifiedScreen
+      VerifiedScreen:VerifiedScreen,
+      WelcomeScreen:WelcomeScreen
     
     },
     {

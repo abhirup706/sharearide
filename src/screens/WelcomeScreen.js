@@ -19,6 +19,7 @@ import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
 import Verified from '../../assets/verified.png'
+import Logo from '../../assets/logo.jpeg'
 
 import {
     CodeField,
@@ -30,7 +31,7 @@ import {
   
   const CELL_COUNT = 6;
 
-const VerifiedScreen = (props) => {
+const WelcomeScreen = (props) => {
 
     const screenHeight = Dimensions.get('window').height
     const screenWidth = Dimensions.get('window').width
@@ -57,40 +58,49 @@ const VerifiedScreen = (props) => {
             keyboardShouldPersistTaps="always"
         >
 
-<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40, backgroundColor:"white"}}>
+<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40,paddingTop:20, backgroundColor:"white"}}>
                     
 
-                    <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10,borderRadius:0}}>
-                        <Text style={{ color: "white", alignSelf: "center"}}>You're All Set</Text>
+                    <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:5,borderRadius:0}}>
+                        <Text style={{ color: "white", alignSelf: "center"}}>Welcome, Abhirup!</Text>
                     </View>
 
                    
 
-                <Image source={Verified} style={styles.verified}/>
-                   <Text style={{...styles.textStyle,color:"blue",fontSize:20,flex:1}}>Account Successfully Verified!</Text>             
+                <Image source={Logo} style={styles.verified}/>
+
+                   <Text style={{...styles.textStyle,color:"black",fontSize:15,flex:1,}}>Choose Your Role</Text>  
+
+                   <Text style={{...styles.textStyle,color:"grey",fontSize:10,flex:1,marginBottom:1}}>Share a Ride as a Passenger</Text>  
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "green", marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "coral", marginBottom: 15, marginHorizontal:10}}
                         onPress={() => {
                             console.log("Login button Pressed")
-                            props.navigation.navigate('WelcomeScreen')
+                            props.navigation.navigate('UploadScreen')
                         }}
                    >
                     
-                    <Text style={{...styles.textStyle}}>Get Started</Text>
+                    
+                    
+                    <Text style={{...styles.textStyle}}>Rider</Text>
+
 
                    </TouchableHighlight>
 
-                   <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "firebrick", marginTop: 15, marginHorizontal:10}}
+ 
+                    <Text style={{...styles.textStyle,color:"grey",fontSize:10,flex:1,}}>Share a Ride as a Host</Text>  
+                    <TouchableHighlight
+                        style={{ ...styles.openButton, backgroundColor: "cornflowerblue", marginBottom: 15, marginHorizontal:10}}
                         onPress={() => {
                             console.log("Signup button Pressed")
                             props.navigation.navigate('LoginScreen')
                         }}
                    >
                     
-                       <Text style={{...styles.textStyle}}>Go Back</Text>
+                       <Text style={{...styles.textStyle}}>Provider</Text>
 
-                   </TouchableHighlight>
+                    </TouchableHighlight>
+
                 </View>
 
         </ScrollView>
@@ -119,12 +129,13 @@ const styles = StyleSheet.create({
             color: "white",
             fontWeight: "bold",
             textAlign: "center"
+
           },
 
     openButton: {
             backgroundColor: Colors.primaryColor,
             borderRadius: 10,
-            padding: 10,
+            padding: 5,
             elevation: 10,
  
           },
@@ -150,10 +161,11 @@ const styles = StyleSheet.create({
           },
           verified:{
             justifyContent: "center",
-            width:"50%",
-            height:"50%",
-            marginLeft:"25%"
+            width:"45%",
+            height:"45%",
+            marginLeft:"27%",
+            marginTop:"5%"
           }
 })
-export default VerifiedScreen
+export default WelcomeScreen
 

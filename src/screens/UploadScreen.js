@@ -3,6 +3,7 @@ import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
 
 
+
 import {
   StyleSheet,
   Text,
@@ -104,21 +105,10 @@ const UploadScreen = (props) => {
                         }}
                    >
                     
-                    <Text style={{...styles.textStyle}}>Upload</Text>
+                    <Text style={{...styles.textStyle}}>Upload From Device</Text>
 
                    </TouchableHighlight>
-
-                   <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "darkslateblue", marginTop: 15, marginHorizontal:10,flex:1}}
-                        onPress={() => {
-                            console.log("Signup button Pressed")
-                            takePhoto()
-                        }}
-                   >
-                    
-                       <Text style={{...styles.textStyle}}>Take Picture</Text>
-
-                   </TouchableHighlight></View>       
+              </View>       
 
               <View id="idType" style={{margin:10}}>
                     <SelectList 

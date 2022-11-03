@@ -17,13 +17,9 @@
     "react": "18.0.0",
     "react-native": "0.69.6",
     "react-native-confirmation-code-field": "^7.3.1",
-<<<<<<< HEAD
+    "react-native-dropdown-select-list": "^1.0.23",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-safe-area-context": "4.3.1",
-=======
-    "react-native-dropdown-select-list": "^1.0.23",
-    "react-native-material-dropdown": "^0.11.1",
->>>>>>> 0b39d5c7b7283bdc348dcb82524cb4ca1d89f47b
     "react-navigation": "^4.4.4",
     "react-navigation-stack": "^2.10.4"
   },

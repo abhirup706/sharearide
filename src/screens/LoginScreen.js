@@ -68,7 +68,7 @@ const LoginScreen = (props) => {
                         keyboardType="password"
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
-                        secureTextEntry="True"
+                        secureTextEntry={true}
                         value={password.toString()}
                         onChangeText = {(newPassword) => {
                             SetPassword(newPassword)

@@ -77,6 +77,7 @@ const SignupScreen = (props) => {
                     <TextInput 
                         placeholder="Enter Password"
                         keyboardType="password"
+                        secureTextEntry={true}
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
                         value={password.toString()}
@@ -90,6 +91,7 @@ const SignupScreen = (props) => {
                     <TextInput 
                         placeholder="Re-enter Password"
                         keyboardType="password"
+                        secureTextEntry={true}
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
                         value={rePassword.toString()}

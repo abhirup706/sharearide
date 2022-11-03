@@ -16,6 +16,15 @@ import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
+import {
+    CodeField,
+    Cursor,
+    useBlurOnFulfill,
+    useClearByFocusCell,
+  } from 'react-native-confirmation-code-field';
+
+  
+  const CELL_COUNT = 6;
 
 const VerificationScreen = (props) => {
 
@@ -28,32 +37,52 @@ const VerificationScreen = (props) => {
     const [rePassword, SetRePassword] = useState("")
     const [ExcessQuantity, SetExcessQuantity] = useState("")
 
+    const [value, setValue] = useState('');
+    const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
+    const [prop, getCellOnLayoutHandler] = useClearByFocusCell({
+        value,
+        setValue,
+      });
+
+    
+
     return (
         <ScrollView style={{marginHorizontal: 10, alignContent: "center"}}
             keyboardShouldPersistTaps="always"
         >
 
-<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 15, borderRadius: 5, justifyContent: "center"}}>
+<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40}}>
                     
 
                     <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10}}>
-                        <Text style={{ color: "white", alignSelf: "center"}}>Please Enter The Verification Code</Text>
+                        <Text style={{ color: "white", alignSelf: "center"}}>Account Verification</Text>
                     </View>
 
                    
                     
 
-              <View id="code" style={{...styles.textInput,marginTop:25}}>
-                    <TextInput 
-                        placeholder="Enter Code Here"
-                        style={{marginLeft: 2}}
-                        placeholderTextColor={"grey"}
-                        value={userName}
-                        onChangeText = {(newUsername) => {
-                            SetUserName(newUsername)
-                         }}
-                    />
-                </View>
+                    <SafeAreaView style={styles.root}>
+      <Text style={styles.title}>Please Enter The Verification Code Receieve on Your Email</Text>
+      <CodeField
+        ref={ref}
+        {...prop}
+        // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
+        value={value}
+        onChangeText={setValue} 
+        cellCount={CELL_COUNT}
+        rootStyle={styles.codeFieldRoot}
+        keyboardType="number-pad"
+        textContentType="oneTimeCode"
+        renderCell={({index, symbol, isFocused}) => (
+          <Text
+            key={index}
+            style={[styles.cell, isFocused && styles.focusCell]}
+            onLayout={getCellOnLayoutHandler(index)}>
+            {symbol || (isFocused ? <Cursor /> : null)}
+          </Text>
+        )}
+      />
+    </SafeAreaView>
 
                                 
                    <TouchableHighlight
@@ -82,12 +111,9 @@ const VerificationScreen = (props) => {
                 </View>
 
         </ScrollView>
-    )
+    );
 
-
-
-
-}
+};
 
 const styles = StyleSheet.create({
     textInput: {
@@ -116,7 +142,22 @@ const styles = StyleSheet.create({
             padding: 10,
             elevation: 10,
  
-          }
+          },
+          root: {flex: 1, padding: 20},
+          title: {textAlign: 'center', fontSize: 15,marginTop:20,marginHorizontal:10},
+          codeFieldRoot: {marginTop: 20},
+          cell: {
+            width: 40,
+            height: 40,
+            lineHeight: 38,
+            fontSize: 24,
+            borderWidth: 2,
+            borderColor: '#00000030',
+            textAlign: 'center',
+          },
+          focusCell: {
+            borderColor: '#000',
+          },
 })
 export default VerificationScreen
 

@@ -7,17 +7,20 @@ import {
   View,
   Keyboard,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
+  ImageBackground
 } from "react-native";
 
 
-
+const image = { uri: "https://media.giphy.com/media/l0HlKQPTHOGNUPTZm/giphy.gif" };
 import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
 
 const LoginScreen = (props) => {
+    
+
 
     const screenHeight = Dimensions.get('window').height
     const screenWidth = Dimensions.get('window').width
@@ -27,11 +30,14 @@ const LoginScreen = (props) => {
     const [ExcessQuantity, SetExcessQuantity] = useState("")
 
     return (
+        <View>
+        <ImageBackground source={image} style={styles.image}>
         <ScrollView style={{marginHorizontal: 10, alignContent: "center"}}
-            keyboardShouldPersistTaps="always"
-        >
+            keyboardShouldPersistTaps="always">
+                
+            
 
-<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 15, borderRadius: 5, justifyContent: "center",marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40}}>
+<View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 15, borderRadius: 5, justifyContent: "center",marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40, backgroundColor:"white"}}>
                     
 
                     <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10}}>
@@ -93,16 +99,21 @@ const LoginScreen = (props) => {
 
                    </TouchableHighlight>
                 </View>
-
+                
         </ScrollView>
+        </ImageBackground>
+    </View>
     )
 
 
-
+    
 
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+      },
     textInput: {
        
         fontWeight:"bold", 
@@ -115,6 +126,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding:5
     },
+    image: {
+        justifyContent: "center",
+        width: "100%",
+        height: "100%"
+      },
 
 
     textStyle: {

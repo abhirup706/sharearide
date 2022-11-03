@@ -8,7 +8,8 @@ import {
   Keyboard,
   ScrollView,
   SafeAreaView,
-  ImageBackground
+  ImageBackground,
+  Image
 } from "react-native";
 
 
@@ -17,6 +18,8 @@ import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
 import { FlatList } from "react-native";
+import Verified from '../../assets/verified.png'
+
 import {
     CodeField,
     Cursor,
@@ -27,7 +30,7 @@ import {
   
   const CELL_COUNT = 6;
 
-const VerificationScreen = (props) => {
+const VerifiedScreen = (props) => {
 
     const screenHeight = Dimensions.get('window').height
     const screenWidth = Dimensions.get('window').width
@@ -58,45 +61,22 @@ const VerificationScreen = (props) => {
                     
 
                     <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10,borderRadius:0}}>
-                        <Text style={{ color: "white", alignSelf: "center"}}>Account Verification</Text>
+                        <Text style={{ color: "white", alignSelf: "center"}}>You're All Set</Text>
                     </View>
 
                    
-                    
 
-                    <SafeAreaView style={styles.root}>
-      <Text style={styles.title}>Please Enter The Verification Code Receieve on Your Email</Text>
-      <CodeField
-        ref={ref}
-        {...prop}
-        // Use `caretHidden={false}` when users can't paste a text value, because context menu doesn't appear
-        value={value}
-        onChangeText={setValue} 
-        cellCount={CELL_COUNT}
-        rootStyle={styles.codeFieldRoot}
-        keyboardType="number-pad"
-        textContentType="oneTimeCode"
-        renderCell={({index, symbol, isFocused}) => (
-          <Text
-            key={index}
-            style={[styles.cell, isFocused && styles.focusCell]}
-            onLayout={getCellOnLayoutHandler(index)}>
-            {symbol || (isFocused ? <Cursor /> : null)}
-          </Text>
-        )}
-      />
-    </SafeAreaView>
-
-                                
+                <Image source={Verified} style={styles.verified}/>
+                   <Text style={{...styles.textStyle,color:"blue",fontSize:20,flex:1}}>Account Successfully Verified!</Text>             
                    <TouchableHighlight
                         style={{ ...styles.openButton, backgroundColor: "green", marginTop: 15, marginHorizontal:10}}
                         onPress={() => {
-                            console.log("Verified button Pressed")
-                            props.navigation.navigate('VerifiedScreen')
+                            console.log("Login button Pressed")
+                            props.navigation.navigate('UploadScreen')
                         }}
                    >
                     
-                    <Text style={{...styles.textStyle}}>Continue</Text>
+                    <Text style={{...styles.textStyle}}>Get Started</Text>
 
                    </TouchableHighlight>
 
@@ -168,6 +148,12 @@ const styles = StyleSheet.create({
             width: "100%",
             height: "100%"
           },
+          verified:{
+            justifyContent: "center",
+            width:"50%",
+            height:"50%",
+            marginLeft:"25%"
+          }
 })
-export default VerificationScreen
+export default VerifiedScreen
 

@@ -8,6 +8,7 @@ import LoginScreen from "./src/screens/LoginScreen"
 import SignupScreen from "./src/screens/SignupScreen"
 import UploadScreen from "./src/screens/UploadScreen"
 import VerificationScreen from "./src/screens/VerificationScreen"
+import VerifiedScreen from './src/screens/VerifiedScreen';
 
 const ScreenNavigator = createStackNavigator(
     {
@@ -17,7 +18,8 @@ const ScreenNavigator = createStackNavigator(
       LoginScreen: LoginScreen,
       SignupScreen:SignupScreen,
       UploadScreen:UploadScreen,
-      VerificationScreen:VerificationScreen
+      VerificationScreen:VerificationScreen,
+      VerifiedScreen:VerifiedScreen
     
     },
     {

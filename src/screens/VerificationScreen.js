@@ -54,7 +54,7 @@ const VerificationScreen = (props) => {
 <View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40}}>
                     
 
-                    <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10}}>
+                    <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10,borderRadius:0}}>
                         <Text style={{ color: "white", alignSelf: "center"}}>Account Verification</Text>
                     </View>
 

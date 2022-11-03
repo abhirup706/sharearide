@@ -34,8 +34,8 @@ const LoginScreen = (props) => {
 <View id="PO Wise Quantity" style={{borderColor: Colors.primaryColor, borderWidth: 1, height: 0.5*screenHeight, marginTop: 15, borderRadius: 5, justifyContent: "center",marginTop: 100, borderRadius: 5, justifyContent: "center",padding:40}}>
                     
 
-                    <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10}}>
-                        <Text style={{ color: "white", alignSelf: "center"}}>User Login Screen</Text>
+                    <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10,borderRadius:0}}>
+                        <Text style={{ color: "white", alignSelf: "center"}}>Login To Your Account</Text>
                     </View>
 
                    
@@ -56,12 +56,13 @@ const LoginScreen = (props) => {
                      
                           
 
-                <View id="username" style={{...styles.textInput}}>
+                <View id="password" style={{...styles.textInput}}>
                     <TextInput 
                         placeholder="Password"
                         keyboardType="password"
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
+                        secureTextEntry="True"
                         value={password.toString()}
                         onChangeText = {(newPassword) => {
                             SetPassword(newPassword)

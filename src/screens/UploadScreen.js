@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import * as DocumentPicker from 'expo-document-picker';
 import * as ImagePicker from 'expo-image-picker';
+import {
+    Dropdown }
+    from 'react-native-material-dropdown';
 
 import {
   StyleSheet,
@@ -23,6 +26,13 @@ import { FlatList } from "react-native";
 
 
 const UploadScreen = (props) => {
+
+    let data = [{
+        value:'Driving Licence',},{
+            value: 'Mango',},{
+                value: 'Pear',
+            }
+    ]
 
     const [status, requestPermission] = ImagePicker.useCameraPermissions();
 
@@ -110,11 +120,11 @@ const UploadScreen = (props) => {
                    </TouchableHighlight></View>       
 
               <View id="idType" style={{...styles.textInput}}>
-                    <TextInput 
-                        placeholder="Enter Full Name"
+                    <Dropdown 
+                        placeholder="Select ID Type"
                         style={{marginLeft: 2}}
                         placeholderTextColor={"grey"}
-                        value={userName}
+                        data={data}
                         onChangeText = {(newUsername) => {
                             SetUserName(newUsername)
                          }}

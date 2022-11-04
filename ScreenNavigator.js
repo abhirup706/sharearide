@@ -11,6 +11,7 @@ import VerificationScreen from "./src/screens/VerificationScreen"
 import VerifiedScreen from './src/screens/VerifiedScreen';
 import WelcomeScreen from './src/screens/WelcomeScreen';
 
+
 const ScreenNavigator = createStackNavigator(
     {
       HomeScreen: HomeScreen,

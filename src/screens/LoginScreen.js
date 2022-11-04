@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 
-const image = { uri: "https://media.giphy.com/media/l0HlKQPTHOGNUPTZm/giphy.gif" };
+const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
 import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
@@ -21,7 +21,15 @@ import { FlatList } from "react-native";
 const LoginScreen = (props) => {
     
 
+    const loginCredentials = () => {
+        if (loginData.email === 'john@gmail.com' && loginData.password === 'christina') {
+        } else {
+        }
+    }
 
+    
+    const email = "abhirup@gmail.com"
+    const pswd = "password"
     const screenHeight = Dimensions.get('window').height
     const screenWidth = Dimensions.get('window').width
 
@@ -81,7 +89,12 @@ const LoginScreen = (props) => {
                         style={{ ...styles.openButton, backgroundColor: Colors.primaryColor, marginTop: 15, marginHorizontal:10}}
                         onPress={() => {
                             console.log("Login button Pressed")
-                            props.navigation.navigate('WelcomeScreen')
+                            if(userName==email && pswd==password){
+                                props.navigation.navigate('WelcomeScreen')
+                            }
+                            else{
+                                alert("Username or password is Incorrect")
+                            }
 
                         }}
                    >
@@ -89,16 +102,15 @@ const LoginScreen = (props) => {
                     <Text style={{...styles.textStyle}}>Login</Text>
 
                    </TouchableHighlight>
-                   <Text style={{color:"blue", alignSelf:"center",marginTop:15}}>Dont have an account? SignUp below</Text>
                    <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: Colors.primaryColor, marginTop: 15, marginHorizontal:10}}
+                        style={{ ...styles.openButton, backgroundColor: "coral", marginTop: 15, marginHorizontal:10}}
                         onPress={() => {
                             console.log("Signup button Pressed")
                             props.navigation.navigate('SignupScreen')
                         }}
                    >
                     
-                       <Text style={{...styles.textStyle}}>Signup</Text>
+                       <Text style={{...styles.textStyle}}>Dont have an account? SignUp Now</Text>
 
                    </TouchableHighlight>
                 </View>

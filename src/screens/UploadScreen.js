@@ -17,7 +17,7 @@ import {
 } from "react-native";
 
 
-const image = { uri: "https://media.giphy.com/media/l0HlKQPTHOGNUPTZm/giphy.gif" };
+const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
 import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
@@ -35,6 +35,8 @@ const UploadScreen = (props) => {
         let result = await DocumentPicker.getDocumentAsync({});
         console.log(result.uri);
         console.log(result);
+        alert("Selected File: "+result.name)
+        return result.name
     }
 
     const pickImage = async () => {
@@ -97,17 +99,21 @@ const UploadScreen = (props) => {
 
                    
             <View style={{flexDirection:"row"}}>
+            
             <TouchableHighlight
-                        style={{ ...styles.openButton, backgroundColor: "darkslateblue", marginTop: 15, marginHorizontal:10,flex:1}}
+                        style={{ ...styles.openButton, backgroundColor: "coral", marginTop: 15, marginHorizontal:10,flex:1}}
                         onPress={() => {
                             console.log("Login button Pressed")
-                            pickImage()
+                            pickDocument()
+                            
+                            
                         }}
                    >
                     
-                    <Text style={{...styles.textStyle}}>Upload From Device</Text>
+                    <Text style={{...styles.textStyle}}>Upload From Device 📑</Text>
 
                    </TouchableHighlight>
+                   
               </View>       
 
               <View id="idType" style={{margin:10}}>

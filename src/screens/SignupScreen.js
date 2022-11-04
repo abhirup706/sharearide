@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 
-const image = { uri: "https://media.giphy.com/media/l0HlKQPTHOGNUPTZm/giphy.gif" };
+const image = { uri: "https://media2.giphy.com/media/yAjIXTFgZtfn6ix3Wt/giphy.gif?cid=790b7611209a359572fe7cff6e2a2ffe67295a71f36d3072&rid=giphy.gif&ct=g" };
 import Colors from "../../constants/colors"
 import { Dimensions } from 'react-native';
 import { TouchableOpacity } from "react-native";
@@ -40,7 +40,7 @@ const SignupScreen = (props) => {
                     
 
                     <View id="PO Heading" style={{...styles.openButton , backgroundColor: Colors.inactiveColor, alignContent: "center", marginHorizontal:10,borderRadius:0}}>
-                        <Text style={{ color: "white", alignSelf: "center"}}>SignUp Screen</Text>
+                        <Text style={{ color: "white", alignSelf: "center"}}>SignUp Today</Text>
                     </View>
 
                    
